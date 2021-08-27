@@ -1,9 +1,9 @@
-package singleton;
+package com.designpatterns.singleton;
 
 /**
  * Auther: Matthew Ma
  * Date: 2021/8/21
- * Description: singleton
+ * Description: com.designpatterns.singleton
  * Version: V1.0
  */
 
@@ -12,22 +12,22 @@ package singleton;
 // 如果自定义classloader 可能会产生多个实例
 
 
-public class Singleton_03 {
-    private Singleton_03() {
+public class SingletonV3 {
+    private SingletonV3() {
     }
 
     public static class Instance {
-        public static final Singleton_03 INSTANCE = new Singleton_03();
+        public static final SingletonV3 INSTANCE = new SingletonV3();
     }
 
-    public static Singleton_03 getInstance() {
+    public static SingletonV3 getInstance() {
         return Instance.INSTANCE;
     }
 
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
             new Thread(()->{
-                System.out.println(Singleton_01.getInstance().hashCode());
+                System.out.println(SingletonV3.getInstance().hashCode());
             }).start();
         }
     }
